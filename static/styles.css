@@ -1,0 +1,105 @@
+:root {
+  --bg: #f4efe4;
+  --panel: rgba(255, 250, 242, 0.84);
+  --panel-strong: #fffdf8;
+  --text: #172121;
+  --muted: #5b5f52;
+  --line: rgba(23, 33, 33, 0.1);
+  --accent: #c15c2c;
+  --accent-dark: #8e3611;
+  --mint: #2f7f6f;
+  --shadow: 0 24px 60px rgba(41, 28, 17, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  background:
+    radial-gradient(circle at top left, rgba(193, 92, 44, 0.2), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(47, 127, 111, 0.18), transparent 24%),
+    linear-gradient(160deg, #f6f1e7 0%, #ebe0cd 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('/static/tzg.jpeg');
+  background-size: 55%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 0 0 24px;
+  padding: 24px 0 48px;
+  overflow: hidden;
+}
+
+/* Login pagina: content gecentreerd op het scherm */
+.page-shell.login-shell {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.brand {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.brand-logo-placeholder {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: var(--line);
+  flex-shrink: 0;
+}
+
+.badge-admin,
+.badge-client {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}

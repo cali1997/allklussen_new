@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+{% block title %}Home - All Klussen 040{% endblock %}
+
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-inner">
+        <div class="hero-content">
+            <h1 class="hero-title">Jouw Huis, Onze Zorg, Renovaties en Klusjes Snel en Professioneel!</h1>
+            <p class="hero-subtitle">Vakkundig, betrouwbaar en altijd met oog voor detail. Wij zorgen dat uw huis er perfect uitziet.</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-primary-custom">Vraag offerte aan</a>
+                <a href="{{ url_for('diensten') }}" class="btn btn-outline-custom">Onze diensten</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="home-slider" style="width:340px;max-width:100%;position:relative;">
+                <img id="home-slider-img" src="{{ url_for('static', filename='images/WhatsApp Image 2026-04-17 at 8.21.31 PM.jpeg') }}" alt="AllKlussen040 project" style="background:#fff;object-fit:contain;width:100%;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.18);transition:opacity 0.7s;">
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+  const homeSliderImages = [
+    "{{ url_for('static', filename='images/WhatsApp Image 2026-04-17 at 8.21.31 PM.jpeg') }}",
+    "{{ url_for('static', filename='images/klusjesman.jpg') }}",
+    "{{ url_for('static', filename='images/portfolio2.jpg') }}",
+    "{{ url_for('static', filename='images/cinewall.png') }}"
+  ];
+  let homeSliderIndex = 0;
+  setInterval(() => {
+    homeSliderIndex = (homeSliderIndex + 1) % homeSliderImages.length;
+    const img = document.getElementById('home-slider-img');
+    img.style.opacity = 0;
+    setTimeout(() => {
+      img.src = homeSliderImages[homeSliderIndex];
+      img.style.opacity = 1;
+    }, 700);
+  }, 5000);
+</script>
+
+<!-- Stats Bar -->
+<section class="stats-bar">
+    <div class="stats-inner">
+        <div class="stat-item">
+            <span class="stat-number" data-target="145">0</span>
+            <span class="stat-plus">+</span>
+            <p class="stat-label">Tevreden Klanten</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-number" data-target="156">0</span>
+            <span class="stat-plus">+</span>
+            <p class="stat-label">Afgeronde Projecten</p>
+        </div>
+    </div>
+</section>
+
+<!-- About / Partner Section -->
+<section class="partner-section">
+    <div class="partner-inner">
+        <div class="partner-image-wrap">
+            <img src="{{ url_for('static', filename='images/klusjesman.jpg') }}" alt="Klusjesman aan het werk">
+            <div class="years-badge">
+                <span class="years-num">2+</span>
+                <span class="years-text">Jaar ervaring</span>
+            </div>
+        </div>
+        <div class="partner-content">
+            <h2 class="partner-title">Jouw Kluspartner voor Elk Project, Groot of Klein!</h2>
+            <p class="partner-desc">Bij AllKlussen040 ben je verzekerd van vakmanschap, duidelijke communicatie en een strak resultaat. Wij nemen al het werk in en rondom je huis uit handen – snel, netjes en met oog voor detail.</p>
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon feature-icon--blue">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Snel en Betrouwbaar</h4>
+                        <p>Wij werken snel en efficiënt, zonder in te leveren op kwaliteit. Afspraken zijn afspraken bij ons.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon feature-icon--blue">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4>Vakkundige Klusjesman</h4>
+                        <p>Jarenlange ervaring in allerlei klussen. Van kleine reparaties tot complete renovaties.</p>
+                    </div>
+                </div>
+                <!-- Noodberdien feature verwijderd -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services-section" id="diensten">
+    <div class="services-inner">
+        <h2 class="section-title">Al onze diensten</h2>
+        <p class="section-subtitle">Wij bieden een breed scala aan klus- en renovatiediensten voor uw woning.</p>
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/schilderen.png') }}" alt="Schilderen">
+                </div>
+                <div class="service-body">
+                    <h3>Schilderen</h3>
+                    <p>Professioneel schilderwerk voor binnen en buiten. Muren, kozijnen, plafonds — strak en duurzaam.</p>
+                    <a href="{{ url_for('diensten') }}" class="btn btn-service">Meer ontdekken</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/laminaat.png') }}" alt="Laminaat leggen">
+                </div>
+                <div class="service-body">
+                    <h3>Laminaat leggen</h3>
+                    <p>Vakkundig laminaat of PVC vloer leggen op elk type ondergrond. Snel, netjes en met oog voor detail.</p>
+                    <a href="{{ url_for('diensten') }}" class="btn btn-service">Meer informatie</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/badkamers.png') }}" alt="Badkamer renovatie">
+                </div>
+                <div class="service-body">
+                    <h3>Badkamer/keuken renovatie</h3>
+                    <p>Complete renovatie van uw badkamer of keuken. Van tegels en sanitair tot de volledige inrichting.</p>
+                    <a href="{{ url_for('diensten') }}" class="btn btn-service">Meer informatie</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/cinewall.png') }}" alt="Cinewall">
+                </div>
+                <div class="service-body">
+                    <h3>Cinewall op maat</h3>
+                    <p>Een op maat gemaakte cinewall voor uw televisie. Stijlvol, functioneel en helemaal naar wens.</p>
+                    <a href="{{ url_for('diensten') }}" class="btn btn-service">Meer informatie</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/ikea.png') }}" alt="Ikea meubels monteren">
+                </div>
+                <div class="service-body">
+                    <h3>Ikea meubels monteren</h3>
+                    <p>Snel en vakkundig IKEA-meubels in elkaar zetten. Geen stress, gewoon geregeld.</p>
+                    <a href="{{ url_for('diensten') }}" class="btn btn-service">Meer informatie</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/decoratie.png') }}" alt="Decoratie">
+                </div>
+                <div class="service-body">
+                    <h3>Decoratie</h3>
+                    <p>Wandpanelen, sierstucwerk en decoratieve afwerking voor een persoonlijk interieur op maat.</p>
+                    <a href="{{ url_for('diensten') }}" class="btn btn-service">Meer informatie</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/overig.png') }}" alt="Omgevingsplanten verhalen">
+                </div>
+                <div class="service-body">
+                    <h3>Omgevingsplanten verhalen</h3>
+                    <p>Verplaatsen en renoveren van tuinplanten, schuttingen en buitenruimtes vakkundig afgehandeld.</p>
+                    <a href="{{ url_for('diensten') }}" class="btn btn-service">Meer informatie</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/tegels.png') }}" alt="Tegels">
+                </div>
+                <div class="service-body">
+                    <h3>Tegels</h3>
+                    <p>Tegelwerk in badkamer, keuken of buiten. Strak gelegd, waterdicht afgewerkt en netjes ingevoegd.</p>
+                    <a href="{{ url_for('diensten') }}" class="btn btn-service">Meer informatie</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="services-cta">
+            <a href="{{ url_for('diensten') }}" class="btn btn-primary-custom">Alle diensten bekijken</a>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section class="portfolio-section">
+    <div class="portfolio-inner">
+        <h2 class="section-title text-center">Afgeronde Projecten &#8211; Onze Trots</h2>
+        <p class="section-subtitle text-center mx-auto">Bekijk een selectie van onze afgeronde projecten. Van kleine klussen tot complete renovaties, elk project voeren wij met dezelfde toewijding en vakmanschap uit.</p>
+    </div>
+    <div class="portfolio-grid">
+        <div class="portfolio-item">
+            <img src="{{ url_for('static', filename='images/portfolio1.jpg') }}" alt="Renovatie project">
+        </div>
+        <div class="portfolio-item">
+            <img src="{{ url_for('static', filename='images/portfolio2.jpg') }}" alt="Schilderwerk project">
+        </div>
+        <div class="portfolio-item">
+            <img src="{{ url_for('static', filename='images/portfolio3.jpg') }}" alt="Keuken project">
+        </div>
+        <div class="portfolio-item">
+            <img src="{{ url_for('static', filename='images/cinewall.png') }}" alt="Cinewall project">
+        </div>
+    </div>
+</section>
+
+<!-- Yellow CTA Banner -->
+<section class="yellow-cta">
+    <div class="yellow-cta-deco">
+        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 30 Q30 5 60 20 Q90 35 110 10" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M105 5 L112 10 L106 14" stroke="#1a1a1a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="yellow-cta-inner">
+        <div class="yellow-cta-photo">
+            <img src="{{ url_for('static', filename='images/vakman-cta.png') }}" alt="AllKlussen vakman">
+        </div>
+        <div class="yellow-cta-content">
+            <h2>Heb je een probleem? Wij lossen het vandaag nog op!</h2>
+            <p>Of het nu gaat om een kleine klus of een complete renovatie, wij staan klaar om je direct te helpen. Neem contact met ons op en we lossen het snel en professioneel voor je op.</p>
+            <div class="yellow-cta-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-cta-dark">Offerte</a>
+                <a href="tel:+31648422477" class="btn btn-cta-phone"><i class="fas fa-phone"></i> 06 484 22 477</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Show lead modal on home page after 1.5 seconds
+    setTimeout(function() {
+        var modal = new bootstrap.Modal(document.getElementById('leadModal'));
+        modal.show();
+    }, 1500);
+</script>
+{% endblock %}

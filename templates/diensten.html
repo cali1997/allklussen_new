@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+{% block title %}Diensten - All Klussen 040{% endblock %}
+
+{% block content %}
+
+<!-- Diensten Hero -->
+<section class="diensten-hero">
+    <div class="diensten-hero-inner">
+        <div class="diensten-hero-content">
+            <svg class="hero-deco-svg" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 30 Q30 5 60 20 Q90 35 110 10" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M105 5 L112 10 L106 14" stroke="#1a1a1a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h1>Alles in en om het huis,<br>vakkundig geregeld.</h1>
+            <p>Of het nu gaat om een kleine klus of een complete renovatie, bij Allklussen040.nl ben je verzekerd van vakmanschap, duidelijke communicatie en een strak resultaat. Wij nemen al het werk in en rondom je huis uit handen – snel, netjes en met oog voor detail.<br><br>Vraag vandaag nog een vrijblijvende offerte aan en ontdek wat we voor jou kunnen betekenen.</p>
+            <div class="happy-clients">
+                <div class="client-avatars">
+                    <img src="{{ url_for('static', filename='images/testimonial1.jpg') }}" alt="klant">
+                    <img src="{{ url_for('static', filename='images/testimonial2.png') }}" alt="klant">
+                    <img src="{{ url_for('static', filename='images/testimonial3.jpg') }}" alt="klant">
+                </div>
+                <span>150+ Blije klanten</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="diensten-stats-bar">
+    <div class="diensten-stats-inner">
+        <div class="diensten-stat">
+            <span class="stat-number" data-target="22">0</span>
+            <span class="stat-plus">+</span>
+            <p>Afgeronde projecten</p>
+        </div>
+        <div class="diensten-stat">
+            <span class="stat-number" data-target="2">0</span>
+            <p>Jaar ervaring</p>
+        </div>
+        <div class="diensten-stat-cta">
+            <a href="#alle-diensten" class="btn btn-dark-cta">Al onze diensten</a>
+        </div>
+    </div>
+</section>
+
+<!-- All Services Grid -->
+<section class="services-section" id="alle-diensten">
+    <div class="services-inner">
+        <h2 class="section-title">Al onze diensten</h2>
+        <p class="section-subtitle">Ontdek het volledige aanbod van AllKlussen040 — voor elk project een vakkundige oplossing.</p>
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/schilderen.png') }}" alt="Schilderen">
+                </div>
+                <div class="service-body">
+                    <h3>Schilderen</h3>
+                    <p>Professioneel schilderwerk voor binnen en buiten. Muren, kozijnen, plafonds — strak en duurzaam afgewerkt.</p>
+                    <a href="{{ url_for('contact') }}" class="btn btn-service">Meer ontdekken</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/laminaat.png') }}" alt="Laminaat leggen">
+                </div>
+                <div class="service-body">
+                    <h3>Laminaat leggen</h3>
+                    <p>Vakkundig laminaat of PVC vloer leggen op elk type ondergrond. Snel, netjes en met oog voor detail.</p>
+                    <a href="{{ url_for('contact') }}" class="btn btn-service">Meer ontdekken</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/badkamers.png') }}" alt="Badkamer renovatie">
+                </div>
+                <div class="service-body">
+                    <h3>Badkamer/keuken renovatie</h3>
+                    <p>Complete renovatie van uw badkamer of keuken. Van tegels en sanitair tot de volledige inrichting.</p>
+                    <a href="{{ url_for('contact') }}" class="btn btn-service">Meer ontdekken</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/cinewall.png') }}" alt="Cinewall">
+                </div>
+                <div class="service-body">
+                    <h3>Cinewall zorzet</h3>
+                    <p>Een op maat gemaakte cinewall voor uw televisie. Stijlvol, functioneel en helemaal naar uw wens.</p>
+                    <a href="{{ url_for('contact') }}" class="btn btn-service">Meer ontdekken</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/ikea.png') }}" alt="IKEA montage">
+                </div>
+                <div class="service-body">
+                    <h3>Hout behandelen</h3>
+                    <p>Behandeling en herstel van houten vloeren, kozijnen en meubels. Schuren, lakken of beizen.</p>
+                    <a href="{{ url_for('contact') }}" class="btn btn-service">Meer ontdekken</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/decoratie.png') }}" alt="Decoratie">
+                </div>
+                <div class="service-body">
+                    <h3>Stucwerk</h3>
+                    <p>Gladde muren en plafonds door professioneel stucwerk. Van reparatie tot complete stuclagen.</p>
+                    <a href="{{ url_for('contact') }}" class="btn btn-service">Meer ontdekken</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/overig.png') }}" alt="Overig klussen">
+                </div>
+                <div class="service-body">
+                    <h3>Omgevingsplanten verhalen</h3>
+                    <p>Verplaatsen en renoveren van tuinplanten, schuttingen en buitenruimtes vakkundig afgehandeld.</p>
+                    <a href="{{ url_for('contact') }}" class="btn btn-service">Meer ontdekken</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/tegels.png') }}" alt="Tegels">
+                </div>
+                <div class="service-body">
+                    <h3>Tegels</h3>
+                    <p>Tegelwerk in badkamer, keuken of buiten. Strak gelegd, waterdicht afgewerkt en netjes ingevoegd.</p>
+                    <a href="{{ url_for('contact') }}" class="btn btn-service">Meer ontdekken</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Reviews Section -->
+<section class="reviews-section">
+    <div class="reviews-inner">
+        <h2 class="reviews-title">Wat mensen zeggen over onze diensten</h2>
+        <p class="reviews-sub">Bij Allklussen040.nl staan we bekend om onze goede service, onze vakkundigheid en onze klanttevredenheid. Onze klanten zijn enthousiast over de kwaliteit van ons werk. Lees hieronder wat onze klanten over ons zeggen!</p>
+        <div class="reviews-slider-outer" style="overflow:hidden;max-width:1200px;margin:0 auto;">
+            <div class="reviews-slider-track" id="reviews-slider-track" style="display:flex;gap:32px;width:max-content;">
+                <div class="review-card">
+                    <div class="review-google-icon"><span>G</span></div>
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-name">Husaynah Y.</p>
+                    <p class="review-role">Klant van Allklussen</p>
+                    <p class="review-text">"They showed up right on time and finished the job quickly. I hired them for painting and they did an outstanding professional job with all different types of painting. I will certainly return to them for future work."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-google-icon"><span>G</span></div>
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-name">Marie-Christine</p>
+                    <p class="review-role">Klant van Allklussen</p>
+                    <p class="review-text">"Ik heb een van schilders en de stukbedrijf van Allklussen040 ingehuurd op aanbeveling van mijn buurman. Ze zijn een uitstekend bedrijf en communiceren erg goed. Highly recommend!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-google-icon"><span>G</span></div>
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-name">Klant van Allklussen</p>
+                    <p class="review-role">Klant van Allklussen</p>
+                    <p class="review-text">"Incredibly professional! 'They really took the time to ensure the quality of the finished product, it's absolutely useful to never question the quality of Allklussen040. Highly recommend for good painting services!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-google-icon"><span>G</span></div>
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-name">Johan Franzen</p>
+                    <p class="review-role">Klant van Allklussen</p>
+                    <p class="review-text">"Allklussen040 did an excellent job from start to finish. They were extremely helpful in evaluating the scope of work, showing up on time, finishing ahead of schedule and working within our budget. Impressive!"</p>
+                </div>
+                <!-- Dubbel voor oneindige loop -->
+                <div class="review-card">
+                    <div class="review-google-icon"><span>G</span></div>
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-name">Husaynah Y.</p>
+                    <p class="review-role">Klant van Allklussen</p>
+                    <p class="review-text">"They showed up right on time and finished the job quickly. I hired them for painting and they did an outstanding professional job with all different types of painting. I will certainly return to them for future work."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-google-icon"><span>G</span></div>
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-name">Marie-Christine</p>
+                    <p class="review-role">Klant van Allklussen</p>
+                    <p class="review-text">"Ik heb een van schilders en de stukbedrijf van Allklussen040 ingehuurd op aanbeveling van mijn buurman. Ze zijn een uitstekend bedrijf en communiceren erg goed. Highly recommend!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-google-icon"><span>G</span></div>
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-name">Klant van Allklussen</p>
+                    <p class="review-role">Klant van Allklussen</p>
+                    <p class="review-text">"Incredibly professional! 'They really took the time to ensure the quality of the finished product, it's absolutely useful to never question the quality of Allklussen040. Highly recommend for good painting services!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-google-icon"><span>G</span></div>
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="review-name">Johan Franzen</p>
+                    <p class="review-role">Klant van Allklussen</p>
+                    <p class="review-text">"Allklussen040 did an excellent job from start to finish. They were extremely helpful in evaluating the scope of work, showing up on time, finishing ahead of schedule and working within our budget. Impressive!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+.reviews-slider-outer { position: relative; }
+.reviews-slider-track { will-change: transform; }
+</style>
+<script>
+  const slider = document.getElementById('reviews-slider-track');
+  let pos = 0;
+  let running = true;
+  const speed = 0.5; // pixels per frame (tweak for speed)
+  function animateSlider() {
+    if (running) {
+      pos -= speed;
+      if (Math.abs(pos) >= slider.scrollWidth / 2) pos = 0;
+      slider.style.transform = `translateX(${pos}px)`;
+    }
+    requestAnimationFrame(animateSlider);
+  }
+  slider.parentElement.addEventListener('mouseenter', () => { running = false; });
+  slider.parentElement.addEventListener('mouseleave', () => { running = true; });
+  animateSlider();
+</script>
+
+<!-- Yellow CTA Banner -->
+<section class="yellow-cta">
+    <div class="yellow-cta-deco">
+        <svg viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 30 Q30 5 60 20 Q90 35 110 10" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M105 5 L112 10 L106 14" stroke="#1a1a1a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="yellow-cta-inner">
+        <div class="yellow-cta-photo">
+            <img src="{{ url_for('static', filename='images/vakman-cta.png') }}" alt="AllKlussen vakman">
+        </div>
+        <div class="yellow-cta-content">
+            <h2>Heb je een probleem? Wij lossen het vandaag nog op!</h2>
+            <p>Of het nu gaat om een kleine klus of een complete renovatie, wij staan klaar. Neem contact met ons op en we lossen het snel en professioneel voor je op.</p>
+            <div class="yellow-cta-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-cta-dark">Offerte</a>
+                <a href="tel:+31648422477" class="btn btn-cta-phone"><i class="fas fa-phone"></i> 06 484 22 477</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

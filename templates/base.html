@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}All Klussen 040{% endblock %}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <a href="{{ url_for('home') }}" class="sidebar-logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AllKlussen 040" style="height:48px;width:auto;">
+            <span>AllKlussen <strong>040</strong></span>
+        </a>
+        <button class="sidebar-close" id="sidebarClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <nav class="sidebar-nav">
+        <a href="{{ url_for('home') }}" class="sidebar-link {% if request.endpoint == 'home' %}active{% endif %}">
+            <i class="fas fa-home"></i> Home
+        </a>
+        <a href="{{ url_for('over_ons') }}" class="sidebar-link {% if request.endpoint == 'over_ons' %}active{% endif %}">
+            <i class="fas fa-users"></i> Over Ons
+        </a>
+        <a href="{{ url_for('diensten') }}" class="sidebar-link {% if request.endpoint == 'diensten' %}active{% endif %}">
+            <i class="fas fa-tools"></i> Diensten
+        </a>
+        <a href="{{ url_for('contact') }}" class="sidebar-link {% if request.endpoint == 'contact' %}active{% endif %}">
+            <i class="fas fa-envelope"></i> Contact
+        </a>
+        <a href="{{ url_for('login') }}" class="sidebar-link {% if request.endpoint == 'login' %}active{% endif %}">
+            <i class="fas fa-sign-in-alt"></i> Inloggen
+        </a>
+    </nav>
+    <div class="sidebar-footer">
+        <p><i class="fas fa-phone"></i> <a href="tel:+31648422477">06 484 22 477</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:allklussen040@outlook.com">allklussen040@outlook.com</a></p>
+    </div>
+</div>
+
+<!-- Navbar -->
+<header class="site-header" id="siteHeader">
+    <div class="header-inner">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Menu openen">
+            <i class="fas fa-bars"></i>
+        </button>
+        <a href="{{ url_for('home') }}" class="header-logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AllKlussen 040" style="height:44px;width:auto;">
+            <span class="logo-text">AllKlussen <strong>040</strong></span>
+        </a>
+        <div class="header-phone">
+            <a href="tel:+31648422477" class="phone-btn">
+                <span class="phone-icon-wrap">
+                    <i class="fas fa-phone"></i>
+                </span>
+                <span class="phone-number">06 484 22 477</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="flash-msg flash-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Diensten</h4>
+                <ul class="footer-links">
+                    <li><a href="{{ url_for('diensten') }}">Schilderwerk</a></li>
+                    <li><a href="{{ url_for('diensten') }}">Laminaat leggen</a></li>
+                    <li><a href="{{ url_for('diensten') }}">Vloer Plaatsen</a></li>
+                    <li><a href="{{ url_for('diensten') }}">Badkamer, keuken en badkamer renovatie</a></li>
+                    <li><a href="{{ url_for('diensten') }}">Cinewall op maat</a></li>
+                    <li><a href="{{ url_for('diensten') }}">Stucwerk</a></li>
+                    <li><a href="{{ url_for('diensten') }}">Tegels</a></li>
+                    <li><a href="{{ url_for('diensten') }}">Sierbestraling en het huis</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul class="footer-contact-list">
+                    <li><span>Bel ons rechtstreeks</span></li>
+                    <li><a href="tel:+31648422477" class="footer-phone">06 484 22 477</a></li>
+                    <li><span>Stuur ons een e-mail</span></li>
+                    <li><a href="mailto:allklussen040@outlook.com" class="footer-email">allklussen040@outlook.com</a></li>
+                    <li><span>Werkgebied</span></li>
+                    <li>Geldrop, Eindhoven en omgeving</li>
+                    <li><a href="https://www.instagram.com/allklussen040" class="footer-instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> @allklussen040</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AllKlussen 040" style="height:36px;width:auto;filter:brightness(0) invert(1);">
+            </div>
+            <p>Copyright 2025 Allklussen040 | Alle rechten voorbehouden | <a href="#" style="color:rgba(255,255,255,0.4);">Sitemap</a> | <a href="#" style="color:rgba(255,255,255,0.4);">Webdesign galerij</a></p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

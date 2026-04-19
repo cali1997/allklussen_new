@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - All Klussen 040</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-page">
+
+<!-- Big Background Logo -->
+<div class="login-bg">
+    <div class="login-bg-logo">
+        <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="bg-logo-svg">
+            <!-- Stylized A / house shape -->
+            <path d="M150 20 L20 120 L20 280 L100 280 L100 200 L200 200 L200 280 L280 280 L280 120 Z" fill="none" stroke="#1a1a1a" stroke-width="8"/>
+            <path d="M80 200 L80 280" stroke="#1a1a1a" stroke-width="6"/>
+            <path d="M220 200 L220 280" stroke="#1a1a1a" stroke-width="6"/>
+            <rect x="115" y="215" width="70" height="65" fill="#1a1a1a"/>
+            <!-- Hammer -->
+            <rect x="190" y="140" width="60" height="18" rx="4" fill="#1a1a1a" transform="rotate(-30 190 140)"/>
+            <rect x="215" y="155" width="8" height="50" rx="3" fill="#1a1a1a" transform="rotate(-30 215 155)"/>
+        </svg>
+        <div class="bg-logo-text">
+            <span class="bg-logo-name">AllKlussen</span>
+            <span class="bg-logo-num">040</span>
+        </div>
+        <div class="bg-logo-domain">AllKlussen040.nl</div>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div class="login-modal-wrap">
+    <div class="login-modal">
+        <!-- Small logo -->
+        <div class="login-modal-logo">
+            <svg width="45" height="45" viewBox="0 0 40 40" fill="none">
+                <path d="M20 3L4 14V36H16V26H24V36H36V14L20 3Z" fill="#1B4F9C"/>
+                <rect x="17" y="20" width="6" height="7" fill="white"/>
+            </svg>
+        </div>
+
+        {% if show_register %}
+        <!-- Register Form -->
+        <h2 class="login-title">Account aanmaken</h2>
+        <p class="login-sub">Vul je gegevens in en wij nemen contact met je op</p>
+        <form action="{{ url_for('register') }}" method="POST" class="login-form">
+            <div class="mb-3">
+                <input type="text" class="form-control login-input" name="naam" placeholder="Uw naam" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control login-input" name="email" placeholder="E-mailadres" required>
+            </div>
+            <div class="mb-3">
+                <input type="tel" class="form-control login-input" name="telefoon" placeholder="Telefoonnummer">
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control login-input" name="wachtwoord" placeholder="Wachtwoord kiezen" required>
+            </div>
+            <button type="submit" class="btn btn-login w-100">Account aanmaken</button>
+        </form>
+        <div class="login-divider"><span>of</span></div>
+        <a href="{{ url_for('login') }}" class="btn btn-register w-100">Inloggen</a>
+        {% else %}
+        <!-- Login Form -->
+        <h2 class="login-title">Inloggen</h2>
+        <p class="login-sub">Welkom terug! Log in op je account.</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }} mb-3 py-2" style="font-size:0.85rem;">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('login') }}" method="POST" class="login-form">
+            <div class="mb-3">
+                <label class="login-label">Gebruikersnaam</label>
+                <input type="text" class="form-control login-input" name="gebruikersnaam" placeholder="Jouw gebruikersnaam" required autocomplete="username">
+            </div>
+            <div class="mb-3">
+                <label class="login-label">Wachtwoord</label>
+                <input type="password" class="form-control login-input" name="wachtwoord" placeholder="Jouw wachtwoord" required autocomplete="current-password">
+            </div>
+            <button type="submit" class="btn btn-login w-100">Inloggen</button>
+        </form>
+        <div class="login-divider"><span>of</span></div>
+        <a href="{{ url_for('register') }}" class="btn btn-register w-100">Account aanmaken als klant</a>
+        <p class="login-contact-note">Vul je gegevens in en wij nemen contact met je op</p>
+        {% endif %}
+
+        <div class="login-back">
+            <a href="{{ url_for('home') }}">&#8592; Terug naar home</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

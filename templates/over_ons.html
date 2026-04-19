@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Over ons - All Klussen 040{% endblock %}
+
+{% block content %}
+<section class="overons-hero" style="background:#111; color:#fff; padding:64px 0;">
+  <div class="overons-hero-inner" style="display:flex;align-items:stretch;max-width:1200px;margin:0 auto;gap:48px;flex-wrap:wrap;">
+    <div class="overons-hero-img" style="flex:1 1 380px;min-width:320px;display:flex;align-items:center;justify-content:center;">
+      <div class="overons-slider" style="width:100%;max-width:420px;position:relative;">
+        <img id="slider-img" src="{{ url_for('static', filename='images/klusjesman.jpg') }}" alt="Projectfoto" style="width:100%;border-radius:18px;object-fit:cover;box-shadow:0 8px 32px rgba(0,0,0,0.18);transition:opacity 0.7s;">
+      </div>
+    </div>
+    <div class="overons-hero-content" style="flex:2 1 480px;min-width:320px;display:flex;flex-direction:column;justify-content:center;">
+      <h1 style="font-size:2.8rem;font-weight:700;line-height:1.1;margin-bottom:16px;">Jouw klus, onze zorg.<br>Betrouwbaar vakwerk in Geldrop en omgeving</h1>
+      <p style="font-size:1.15rem;color:#ccc;margin-bottom:32px;">Van schilderwerk tot complete renovaties, snel, vakkundig en altijd met een glimlach.</p>
+      <div class="overons-diensten-box" style="background:#ffe082;color:#222;border-radius:12px;padding:28px 28px 20px 28px;max-width:420px;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+        <h3 style="margin-top:0;margin-bottom:10px;font-size:1.3rem;font-weight:600;">Onze diensten</h3>
+        <p style="margin-bottom:0;font-size:1rem;">Bij Allklussen040.nl zorgen we voor vakwerk in én om het huis. Of het nu gaat om het schilderen van muren en kozijnen, het leggen van strak laminaat, een complete badkamer- of keukenrenovatie, of het bouwen van een cinewall op maat — wij staan klaar met oog voor detail en kwaliteit. Ook voor kleinere klussen zoals het monteren van IKEA-meubels, decoratieve afwerking met wandpanelen, tegelwerk of onderhoudsklussen ben je bij ons aan het juiste adres. Eén aanspreekpunt, alles geregeld.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const sliderImages = [
+    "{{ url_for('static', filename='images/klusjesman.jpg') }}",
+    "{{ url_for('static', filename='images/portfolio2.jpg') }}",
+    "{{ url_for('static', filename='images/cinewall.png') }}",
+    "{{ url_for('static', filename='images/WhatsApp Image 2026-04-17 at 8.21.31 PM.jpeg') }}"
+  ];
+  let sliderIndex = 0;
+  setInterval(() => {
+    sliderIndex = (sliderIndex + 1) % sliderImages.length;
+    const img = document.getElementById('slider-img');
+    img.style.opacity = 0;
+    setTimeout(() => {
+      img.src = sliderImages[sliderIndex];
+      img.style.opacity = 1;
+    }, 700);
+  }, 5000);
+</script>
+{% endblock %}
