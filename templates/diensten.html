@@ -29,12 +29,12 @@
 <section class="diensten-stats-bar">
     <div class="diensten-stats-inner">
         <div class="diensten-stat">
-            <span class="stat-number" data-target="22">0</span>
+            <span class="stat-number" data-target="156">0</span>
             <span class="stat-plus">+</span>
             <p>Afgeronde projecten</p>
         </div>
         <div class="diensten-stat">
-            <span class="stat-number" data-target="2">0</span>
+            <span class="stat-number" data-target="10">0</span>
             <p>Jaar ervaring</p>
         </div>
         <div class="diensten-stat-cta">
@@ -105,16 +105,6 @@
                 </div>
             </div>
 
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="{{ url_for('static', filename='images/decoratie.png') }}" alt="Decoratie">
-                </div>
-                <div class="service-body">
-                    <h3>Stucwerk</h3>
-                    <p>Gladde muren en plafonds door professioneel stucwerk. Van reparatie tot complete stuclagen.</p>
-                    <a href="{{ url_for('contact') }}" class="btn btn-service">Meer ontdekken</a>
-                </div>
-            </div>
 
             <div class="service-card">
                 <div class="service-img">
@@ -154,26 +144,6 @@
                     <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                     <p class="review-name">Husaynah Y.</p>
                     <p class="review-role">Klant van Allklussen</p>
-                    <p class="review-text">"They showed up right on time and finished the job quickly. I hired them for painting and they did an outstanding professional job with all different types of painting. I will certainly return to them for future work."</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-google-icon"><span>G</span></div>
-                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-name">Marie-Christine</p>
-                    <p class="review-role">Klant van Allklussen</p>
-                    <p class="review-text">"Ik heb een van schilders en de stukbedrijf van Allklussen040 ingehuurd op aanbeveling van mijn buurman. Ze zijn een uitstekend bedrijf en communiceren erg goed. Highly recommend!"</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-google-icon"><span>G</span></div>
-                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-name">Klant van Allklussen</p>
-                    <p class="review-role">Klant van Allklussen</p>
-                    <p class="review-text">"Incredibly professional! 'They really took the time to ensure the quality of the finished product, it's absolutely useful to never question the quality of Allklussen040. Highly recommend for good painting services!"</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-google-icon"><span>G</span></div>
-                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-name">Johan Franzen</p>
                     <p class="review-role">Klant van Allklussen</p>
                     <p class="review-text">"Allklussen040 did an excellent job from start to finish. They were extremely helpful in evaluating the scope of work, showing up on time, finishing ahead of schedule and working within our budget. Impressive!"</p>
                 </div>
@@ -184,6 +154,16 @@
                     <p class="review-name">Husaynah Y.</p>
                     <p class="review-role">Klant van Allklussen</p>
                     <p class="review-text">"They showed up right on time and finished the job quickly. I hired them for painting and they did an outstanding professional job with all different types of painting. I will certainly return to them for future work."</p>
+            <div class="service-card">
+                <div class="service-img">
+                    <img src="{{ url_for('static', filename='images/tegels.png') }}" alt="Tegels">
+                </div>
+                <div class="service-body">
+                    <h3>Tegels</h3>
+                    <p>Tegelwerk in badkamer, keuken of buiten. Strak gelegd, waterdicht afgewerkt en netjes ingevoegd.</p>
+                    <a href="{{ url_for('contact') }}" class="btn btn-service">Meer ontdekken</a>
+                </div>
+            </div>
                 </div>
                 <div class="review-card">
                     <div class="review-google-icon"><span>G</span></div>
@@ -213,6 +193,52 @@
 <style>
 .reviews-slider-outer { position: relative; }
 .reviews-slider-track { will-change: transform; }
+.review-card {
+    background: #222;
+    color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px 20px;
+    margin: 0;
+    min-width: 220px;
+    max-width: 260px;
+    font-size: 0.97rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.review-google-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #3cba54;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+.review-stars {
+    color: #ffd700;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+.review-name {
+    font-weight: 600;
+    margin-bottom: 2px;
+    font-size: 1rem;
+}
+.review-role {
+    font-size: 0.92rem;
+    color: #bbb;
+    margin-bottom: 6px;
+}
+.review-text {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
 </style>
 <script>
   const slider = document.getElementById('reviews-slider-track');
@@ -227,8 +253,7 @@
     }
     requestAnimationFrame(animateSlider);
   }
-  slider.parentElement.addEventListener('mouseenter', () => { running = false; });
-  slider.parentElement.addEventListener('mouseleave', () => { running = true; });
+    // Mouse events verwijderd: slider draait altijd door
   animateSlider();
 </script>
 
