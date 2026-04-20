@@ -3,8 +3,8 @@ services:
   web:
     build: .
     container_name: allklussen_web
-    ports:
-      - "8086:8086"
+    expose:
+      - "8086"
     volumes:
       - .:/app
     environment:
